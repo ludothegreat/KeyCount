@@ -1,0 +1,16 @@
+{
+    "global_config": {
+        "remote_check": "https://github.com/YourGitHubUsername/YourRepository.git",
+        "commit_message": "auto_update-{HOSTNAME}-{TIME}-{DATE}"
+    },
+    "hosts": {
+        "Machine1": {
+            "path": "C:\\Users\\Username1\\Path\\To\\Your\\Directory\\key_counts.json",
+            "working_dir": "C:\\Users\\Username1\\Path\\To\\Your\\Directory"
+        },
+        "Machine2": {
+            "path": "C:\\Users\\Username2\\Another\\Path\\key_counts.json",
+            "working_dir": "C:\\Users\\Username2\\Another\\Path"
+        }
+    }
+}
