@@ -4,9 +4,18 @@
 function displayReadableSummary(data) {
     const summaryContainer = document.getElementById('summary-container');
     summaryContainer.innerHTML = ''; // Clear previous content
+    summaryContainer.style.display = 'flex'; // Use Flexbox layout
+    summaryContainer.style.justifyContent = 'center'; // Center the items horizontally
+
+    const tableContainer = document.createElement('div'); // Container for tables
+    tableContainer.style.display = 'flex';
+    tableContainer.style.gap = '5px';  // Add gap between tables
+    summaryContainer.appendChild(tableContainer);
 
     for (const category in data) {
         const categoryDiv = document.createElement('div');
+        categoryDiv.style.width = '100%'; // Set width to 50%
+
         const categoryHeader = document.createElement('h3');
         categoryHeader.textContent = `${category}:`;
         categoryDiv.appendChild(categoryHeader);
@@ -41,9 +50,12 @@ function displayReadableSummary(data) {
 
         table.appendChild(tbody);
         categoryDiv.appendChild(table);
-        summaryContainer.appendChild(categoryDiv);
+        tableContainer.appendChild(categoryDiv); // Append to tableContainer instead of summaryContainer
     }
 }
+
+
+
 
 
 // URLs of the raw key_counts.json files from different branches
