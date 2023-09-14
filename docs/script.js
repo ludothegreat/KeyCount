@@ -6,7 +6,6 @@ function displayReadableSummary(data) {
     summaryContainer.innerHTML = ''; // Clear previous content
 
     const header = document.createElement('h2');
-    header.textContent = "Key Counts Summary";
     summaryContainer.appendChild(header);
 
     for (const category in data) {
