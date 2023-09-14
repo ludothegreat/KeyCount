@@ -1,0 +1,16 @@
+{
+    "global_config": {
+        "remote_check": "https://github.com/ludothegreat/KeyCount.git",
+        "commit_message": "auto_update-{HOSTNAME}-{TIME}-{DATE}"
+    },
+    "hosts": {
+        "HotDog": {
+            "path": "C:\\Users\\ludot\\OneDrive\\Documents\\GitHub\\KeyCount\\key_counts.json",
+            "working_dir": "C:\\Users\\ludot\\OneDrive\\Documents\\GitHub\\KeyCount"
+        },
+        "ttztjohnsonm": {
+            "path": "C:\\Users\\tjohnson\\OneDrive - American Customer Care\\Documents\\GitHub\\KeyCount\\key_counts.json",
+            "working_dir": "C:\\Users\\tjohnson\\OneDrive - American Customer Care\\Documents\\GitHub\\KeyCount"
+        }
+    }
+}
