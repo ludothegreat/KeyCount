@@ -5,9 +5,6 @@ function displayReadableSummary(data) {
     const summaryContainer = document.getElementById('summary-container');
     summaryContainer.innerHTML = ''; // Clear previous content
 
-    const header = document.createElement('h2');
-    summaryContainer.appendChild(header);
-
     for (const category in data) {
         const categoryDiv = document.createElement('div');
         const categoryHeader = document.createElement('h3');
