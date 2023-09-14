@@ -1,6 +1,6 @@
 // JavaScript code to combine key_counts.json files from the HotDog and ttztjohnsonm GitHub branches
 
-// Function to display key counts in a readable format
+// Function to display key counts in a readable format using tables
 function displayReadableSummary(data) {
     const summaryContainer = document.getElementById('summary-container');
     summaryContainer.innerHTML = ''; // Clear previous content
@@ -11,16 +11,40 @@ function displayReadableSummary(data) {
         categoryHeader.textContent = `${category}:`;
         categoryDiv.appendChild(categoryHeader);
 
-        const keyList = document.createElement('ul');
+        const table = document.createElement('table');
+        table.style.width = '100%';
+        table.setAttribute('border', '1');
+
+        const thead = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+        const keyHeader = document.createElement('th');
+        keyHeader.textContent = 'Key';
+        const countHeader = document.createElement('th');
+        countHeader.textContent = 'Count';
+        headerRow.appendChild(keyHeader);
+        headerRow.appendChild(countHeader);
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+
         for (const key in data[category]) {
-            const keyItem = document.createElement('li');
-            keyItem.textContent = `${key}: ${data[category][key]}`;
-            keyList.appendChild(keyItem);
+            const row = document.createElement('tr');
+            const keyCell = document.createElement('td');
+            keyCell.textContent = key;
+            const countCell = document.createElement('td');
+            countCell.textContent = data[category][key];
+            row.appendChild(keyCell);
+            row.appendChild(countCell);
+            tbody.appendChild(row);
         }
-        categoryDiv.appendChild(keyList);
+
+        table.appendChild(tbody);
+        categoryDiv.appendChild(table);
         summaryContainer.appendChild(categoryDiv);
     }
 }
+
 
 // URLs of the raw key_counts.json files from different branches
 const hotdogUrl = "https://raw.githubusercontent.com/ludothegreat/KeyCount/HotDog/key_counts.json";
