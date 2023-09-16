@@ -44,12 +44,9 @@ const ttztjohnsonmUrl = "https://raw.githubusercontent.com/ludothegreat/KeyCount
 
 // Function to combine key counts from multiple sources
 function combineKeyCounts(data1, data2) {
-    const combinedData = {};
-    for (const category in data1) {
-        combinedData[category] = { ...data1[category] };
-        for (const key in data2[category]) {
-            combinedData[category][key] = (combinedData[category][key] || 0) + data2[category][key];
-        }
+    const combinedData = { ...data1 };
+    for (const key in data2) {
+        combinedData[key] = (combinedData[key] || 0) + data2[key];
     }
     return combinedData;
 }
