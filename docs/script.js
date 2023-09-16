@@ -1,61 +1,41 @@
 // JavaScript code to combine key_counts.json files from the HotDog and ttztjohnsonm GitHub branches
 
-// Function to display key counts in a readable format using tables
+// Function to display key counts in a readable format using a table
 function displayReadableSummary(data) {
     const summaryContainer = document.getElementById('summary-container');
     summaryContainer.innerHTML = ''; // Clear previous content
-    summaryContainer.style.display = 'flex'; // Use Flexbox layout
-    summaryContainer.style.justifyContent = 'center'; // Center the items horizontally
 
-    const tableContainer = document.createElement('div'); // Container for tables
-    tableContainer.style.display = 'flex';
-    tableContainer.style.gap = '5px';  // Add gap between tables
-    summaryContainer.appendChild(tableContainer);
+    const table = document.createElement('table');
+    table.style.width = '100%';
+    table.setAttribute('border', '1');
 
-    for (const category in data) {
-        const categoryDiv = document.createElement('div');
-        categoryDiv.style.width = '100%'; // Set width to 50%
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    const keyHeader = document.createElement('th');
+    keyHeader.textContent = 'Key';
+    const countHeader = document.createElement('th');
+    countHeader.textContent = 'Count';
+    headerRow.appendChild(keyHeader);
+    headerRow.appendChild(countHeader);
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
 
-        const categoryHeader = document.createElement('h3');
-        categoryHeader.textContent = `${category}:`;
-        categoryDiv.appendChild(categoryHeader);
+    const tbody = document.createElement('tbody');
 
-        const table = document.createElement('table');
-        table.style.width = '100%';
-        table.setAttribute('border', '1');
-
-        const thead = document.createElement('thead');
-        const headerRow = document.createElement('tr');
-        const keyHeader = document.createElement('th');
-        keyHeader.textContent = 'Key';
-        const countHeader = document.createElement('th');
-        countHeader.textContent = 'Count';
-        headerRow.appendChild(keyHeader);
-        headerRow.appendChild(countHeader);
-        thead.appendChild(headerRow);
-        table.appendChild(thead);
-
-        const tbody = document.createElement('tbody');
-
-        for (const key in data[category]) {
-            const row = document.createElement('tr');
-            const keyCell = document.createElement('td');
-            keyCell.textContent = key;
-            const countCell = document.createElement('td');
-            countCell.textContent = data[category][key];
-            row.appendChild(keyCell);
-            row.appendChild(countCell);
-            tbody.appendChild(row);
-        }
-
-        table.appendChild(tbody);
-        categoryDiv.appendChild(table);
-        tableContainer.appendChild(categoryDiv); // Append to tableContainer instead of summaryContainer
+    for (const key in data) {
+        const row = document.createElement('tr');
+        const keyCell = document.createElement('td');
+        keyCell.textContent = key;
+        const countCell = document.createElement('td');
+        countCell.textContent = data[key];
+        row.appendChild(keyCell);
+        row.appendChild(countCell);
+        tbody.appendChild(row);
     }
+
+    table.appendChild(tbody);
+    summaryContainer.appendChild(table);
 }
-
-
-
 
 
 // URLs of the raw key_counts.json files from different branches
