@@ -7,7 +7,7 @@ function displayReadableSummary(data) {
 
     const table = document.createElement('table');
     table.style.width = '50%';
-    table.setAttribute('border', '0');
+    table.setAttribute('border', '.5');
 
     const thead = document.createElement('thead');
     const headerRow = document.createElement('tr');
