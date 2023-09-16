@@ -6,8 +6,8 @@ function displayReadableSummary(data) {
     summaryContainer.innerHTML = ''; // Clear previous content
 
     const table = document.createElement('table');
-    table.style.width = '100%';
-    table.setAttribute('border', '1');
+    table.style.width = '50%';
+    table.setAttribute('border', '0');
 
     const thead = document.createElement('thead');
     const headerRow = document.createElement('tr');
